@@ -17,9 +17,9 @@ class SimpleTerminal:
         self.inputCallback = input_callback
 
         # Create a scrolled text widget to display the terminal output
-        self.text_widget = scrolledtext.ScrolledText(self.window, wrap=tk.NONE, state="disabled")
-        self.text_widget.pack(expand=True, fill=tk.BOTH)
-        self.text_widget.bind("<Key>", self.on_key_press)
+        self.scrolltext = scrolledtext.ScrolledText(self.window, wrap=tk.NONE, state="disabled")
+        self.scrolltext.pack(expand=True, fill=tk.BOTH)
+        self.scrolltext.bind("<Key>", self.onKey)
 
         # Initialize pyte screen and stream
         self.screen = pyte.Screen(cols, rows)
@@ -28,8 +28,8 @@ class SimpleTerminal:
         # Attach screen to stream
         self.stream.attach(self.screen)
 
-        # Dictionary to map pyte color names to Tkinter color names
-        self.color_map = {
+        # Yeah, this may seem silly now, but we may want to tweak these mappings later
+        self.colorMapping = {
             "black": "black",
             "red": "red",
             "green": "green",
@@ -40,24 +40,23 @@ class SimpleTerminal:
             "white": "white",
         }
 
-        # Configure tags for different text attributes
         self.tag_config = {
-            "default": {},  # Default tag configuration
+            "default": {}, # TODO do we want to set a font here?
             "bold": {"font": ("Courier", font_size, "bold")},
             "italic": {"font": ("Courier", font_size, "italic")},
             "underscore": {"underline": True},
         }
 
-        # Add tags for each color defined in self.color_map
-        for color_name, color_value in self.color_map.items():
-            self.tag_config[f"fg_{color_name}"] = {"foreground": color_value}
-            self.tag_config[f"bg_{color_name}"] = {"background": color_value}
+        # Precalculate all the color mappings here now
+        for name, value in self.colorMapping.items():
+            self.tag_config[f"fg_{name}"] = {"foreground": value}
+            self.tag_config[f"bg_{name}"] = {"background": value}
 
     def addText(self, text):
         # Feed text (including VT100 escape sequences) to pyte stream
         self.stream.feed(text.encode("utf-8"))
 
-    def on_key_press(self, event):
+    def onKey(self, event):
         theKey = event.char
 
         if self.inputCallback is not None:
@@ -78,67 +77,60 @@ class SimpleTerminal:
         self.drawScreen()
 
     def drawScreen(self):
-        self.text_widget.config(state="normal")
+        self.scrolltext.config(state="normal")
 
         # Clear existing tags
-        self.text_widget.tag_delete("all")
+        self.scrolltext.tag_delete("all")
 
         # Set initial display content
-        self.text_widget.delete(1.0, tk.END)
-        self.text_widget.insert(tk.END, "\n".join(self.screen.display))
+        self.scrolltext.delete(1.0, tk.END)
+        self.scrolltext.insert(tk.END, "\n".join(self.screen.display))
 
         # Draw the "cursor"
-        self.text_widget.replace(f"{self.screen.cursor.y}.{self.screen.cursor.x}",
-                                 f"{self.screen.cursor.y}.{self.screen.cursor.x + 1}",
-                                 "_")
+        self.scrolltext.replace(f"{self.screen.cursor.y}.{self.screen.cursor.x}",
+                                f"{self.screen.cursor.y}.{self.screen.cursor.x + 1}",
+                                "_")
 
         for row in range(self.screen.lines):
+            if row not in self.screen.buffer:
+                continue
+
             for col in range(self.screen.columns):
-                # Check if row exists in buffer
-                if row in self.screen.buffer:
-                    row_data = self.screen.buffer[row]
-
-                    # Check if col exists in row_data
-                    if col in row_data:
-                        buf_char = row_data[col]
-                    else:
-                        # Use default character attributes if col not in row_data
-                        buf_char = self.screen.default_char
+                row_data = self.screen.buffer[row]
+                if col in row_data:
+                    charAttributes = row_data[col]
                 else:
-                    # Use default character attributes if row not in buffer
-                    buf_char = self.screen.default_char
+                    charAttributes = self.screen.default_char
 
-                fg_color = self.color_map.get(buf_char.fg, "black")
-                bg_color = self.color_map.get(buf_char.bg, "white")
-                bold = buf_char.bold
-                italics = buf_char.italics
-                underline = buf_char.underscore
+                fg_color = self.colorMapping.get(charAttributes.fg, "black")
+                bg_color = self.colorMapping.get(charAttributes.bg, "white")
 
-                # Determine the tags to apply based on character attributes
-                tags = []
+                bold = charAttributes.bold
+                italics = charAttributes.italics
+                underscore = charAttributes.underscore
+
+                tagsToApply = []
+
                 if bold:
-                    tags.append("bold")
+                    tagsToApply.append("bold")
+
                 if italics:
-                    tags.append("italic")
-                if underline:
-                    tags.append("underscore")
+                    tagsToApply.append("italic")
 
-                # Construct tag with foreground color and background color
-                fg_tag = f"fg_{fg_color}"
-                bg_tag = f"bg_{bg_color}"
+                if underscore:
+                    tagsToApply.append("underscore")
 
-                tags.append(fg_tag)
-                tags.append(bg_tag)
+                tagsToApply.append(f"fg_{fg_color}")
+                tagsToApply.append(f"bg_{bg_color}")
 
-                # Apply tags to the corresponding character
-                for tag in tags:
-                    self.text_widget.tag_add(tag, f"{row + 1}.{col}", f"{row + 1}.{col + 1}")
+                for tag in tagsToApply:
+                    self.scrolltext.tag_add(tag, f"{row + 1}.{col}", f"{row + 1}.{col + 1}")
 
-        # Configure tags for formatting
+        # TODO can we do this once up in the constructor?
         for tag_name, config in self.tag_config.items():
-            self.text_widget.tag_configure(tag_name, **config)
+            self.scrolltext.tag_configure(tag_name, **config)
 
-        self.text_widget.config(state="disabled")
+        self.scrolltext.config(state="disabled")
 
 
 # Example usage:
