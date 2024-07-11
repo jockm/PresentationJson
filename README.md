@@ -1,12 +1,13 @@
 # PresentationJSON
 
-A terminal server/UI server
+A terminal server/UI server for Posix systems[^posix].
 
 ## Theory of operation
 
 ### Command Pipeline
-The presentation server ("server") listens to a named pipe named `presentation_json.cmd` in the {TKTK fix me} directory.
-It is created by the server, but won't object if it already exists.
+The presentation server ("server") listens to a named pipe named `presentation_json.cmd` in the `/tmp/pjpipelines` 
+directory.  If the directory does not exist, the application will attempt to create it.  The command pipe is created by
+the server, but won't object if it already exists.
 
 Clients send commands to create sessions, delete sessions, send data to a session, or to close the server itself. All
 communication on the command pipeline is in utf-8 plain text, and the core commands are limited to the printable ascii
@@ -57,3 +58,8 @@ pipeline.  The app attempts to mitigate this somewhat, and will do more in the f
 2. Open their return pipe immediately after requesting a new session.
 
 These steps will ensure the best performance of the server and client
+
+## Footnotes:
+
+[^posix] No attempt as been made to test if it will work on Windows, and no code has been written to facilitate it.
+It may be added in the future
