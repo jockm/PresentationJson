@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="Added Closing protection and clearscreen()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="minor refomatting">
       <change beforePath="$PROJECT_DIR$/SimpleTerminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTerminal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720544964207</updated>
-      <workItem from="1720544965572" duration="45047000" />
+      <workItem from="1720544965572" duration="45098000" />
     </task>
     <task id="LOCAL-00001" summary="Terminal server sort of works">
       <option name="closed" value="true" />
@@ -139,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720666478361</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="minor refomatting">
+      <option name="closed" value="true" />
+      <created>1720666534381</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720666534381</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +159,8 @@
     <MESSAGE value="Started proper documentation" />
     <MESSAGE value="mincor cleanup" />
     <MESSAGE value="Added Closing protection and clearscreen()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Closing protection and clearscreen()" />
+    <MESSAGE value="minor refomatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor refomatting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -68,10 +68,6 @@ class SimpleTerminal:
         self.drawScreen()
         pass
 
-    def addText(self, text):
-        # Feed text (including VT100 escape sequences) to pyte stream
-        self.stream.feed(text.encode("utf-8"))
-
     def onKey(self, event):
         theKey = event.char
 
