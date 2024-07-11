@@ -4,7 +4,8 @@ from tkinter import scrolledtext, messagebox
 import pyte
 from pyte.streams import ByteStream
 
-WINDOW_CLOSE_MESSAGE = "Are you sure? This may not terminate the process on the other side, and it may become unrecoverable"
+WINDOW_CLOSE_MESSAGE = "Are you sure? This may not terminate the process on the other side, and it may become "\
+                       "unrecoverable"
 
 
 class SimpleTerminal:
@@ -45,7 +46,7 @@ class SimpleTerminal:
         }
 
         self.tag_config = {
-            "default": {}, # TODO do we want to set a font here?
+            "default": {},  # TODO do we want to set a font here?
             "bold": {"font": ("Courier", font_size, "bold")},
             "italic": {"font": ("Courier", font_size, "italic")},
             "underscore": {"underline": True},

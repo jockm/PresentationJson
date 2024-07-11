@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="Cleaned up all the sample code into something that I can use">
+    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="Added Closing protection and clearscreen()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleTerminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTerminal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720544964207</updated>
-      <workItem from="1720544965572" duration="44927000" />
+      <workItem from="1720544965572" duration="45047000" />
     </task>
     <task id="LOCAL-00001" summary="Terminal server sort of works">
       <option name="closed" value="true" />
@@ -117,7 +115,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720657507094</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Started proper documentation">
+      <option name="closed" value="true" />
+      <created>1720666421088</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720666421088</updated>
+    </task>
+    <task id="LOCAL-00005" summary="mincor cleanup">
+      <option name="closed" value="true" />
+      <created>1720666443609</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720666443609</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Closing protection and clearscreen()">
+      <option name="closed" value="true" />
+      <created>1720666478361</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720666478361</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +149,10 @@
     <MESSAGE value="Terminal server sort of works" />
     <MESSAGE value="minor cleanup" />
     <MESSAGE value="Cleaned up all the sample code into something that I can use" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up all the sample code into something that I can use" />
+    <MESSAGE value="Started proper documentation" />
+    <MESSAGE value="mincor cleanup" />
+    <MESSAGE value="Added Closing protection and clearscreen()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Closing protection and clearscreen()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
