@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="minor refomatting">
+    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="removed redundant function">
+      <change afterPath="$PROJECT_DIR$/AppUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresentationJson.py" beforeDir="false" afterPath="$PROJECT_DIR$/PresentationJson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresentationSession.py" beforeDir="false" afterPath="$PROJECT_DIR$/PresentationSession.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleTerminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTerminal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +42,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.SimpleTerminal.executor": "Run",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720544964207</updated>
-      <workItem from="1720544965572" duration="45098000" />
+      <workItem from="1720544965572" duration="53122000" />
     </task>
     <task id="LOCAL-00001" summary="Terminal server sort of works">
       <option name="closed" value="true" />
@@ -146,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720666534381</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="removed redundant function">
+      <option name="closed" value="true" />
+      <created>1720666572876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720666572876</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,31 +173,22 @@
     <MESSAGE value="mincor cleanup" />
     <MESSAGE value="Added Closing protection and clearscreen()" />
     <MESSAGE value="minor refomatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor refomatting" />
+    <MESSAGE value="removed redundant function" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed redundant function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PresentationJson.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SessionManager.py</url>
           <line>41</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PresentationJson.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PresentationJson$SimpleTerminal.coverage" NAME="SimpleTerminal Coverage Results" MODIFIED="1720644101877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PresentationJson$main.coverage" NAME="main Coverage Results" MODIFIED="1720655100169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PresentationJson$main.coverage" NAME="main Coverage Results" MODIFIED="1720708994702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

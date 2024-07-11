@@ -62,7 +62,7 @@ class PresentationJson:
         FifoTools.removeFifo(INPUT_PIPELINE_FILE)
         print("Done!")
 
-    def runOnce(self) -> bool:
+    def process(self) -> bool:
         data = self.pipe.read()
         if len(data) == 0:
             return True

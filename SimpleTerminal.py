@@ -7,6 +7,11 @@ from pyte.streams import ByteStream
 WINDOW_CLOSE_MESSAGE = "Are you sure? This may not terminate the process on the other side, and it may become "\
                        "unrecoverable"
 
+KEYMAP = {
+    "Escape": "",
+    "Tab": "",
+}
+
 
 class SimpleTerminal:
     def __init__(self, root: tk.Tk, title: str, cols=80, rows=25, font_size=14, input_callback=None, echo=False):
@@ -24,7 +29,7 @@ class SimpleTerminal:
         # Create a scrolled text widget to display the terminal output
         self.scrolltext = scrolledtext.ScrolledText(self.window, wrap=tk.NONE, state="disabled")
         self.scrolltext.pack(expand=True, fill=tk.BOTH)
-        self.scrolltext.bind("<Key>", self.onKey)
+        self.window.bind("<Key>", self.onKey)
 
         # Initialize pyte screen and stream
         self.screen = pyte.Screen(cols, rows)
@@ -69,7 +74,15 @@ class SimpleTerminal:
         pass
 
     def onKey(self, event):
+        print("duck", event.keysym)
         theKey = event.char
+
+        # if theKey == '':
+        #     match event.keysym:
+        #         case
+
+        if theKey is None:
+            return
 
         if self.inputCallback is not None:
             self.inputCallback(theKey)
@@ -82,10 +95,9 @@ class SimpleTerminal:
 
     def sendTextToTerminal(self, text):
         # todo need to scan for carriage return and linefeed and adjust the cursor position
-
-        self.screen.cursor.y -= 1
+        # self.screen.cursor.y -= 1
+        # self.screen.cursor.y += 1
         self.stream.feed(text.encode('utf-8'))
-        self.screen.cursor.y += 1
         self.drawScreen()
 
     def drawScreen(self):
@@ -99,8 +111,8 @@ class SimpleTerminal:
         self.scrolltext.insert(tk.END, "\n".join(self.screen.display))
 
         # Draw the "cursor"
-        self.scrolltext.replace(f"{self.screen.cursor.y}.{self.screen.cursor.x}",
-                                f"{self.screen.cursor.y}.{self.screen.cursor.x + 1}",
+        self.scrolltext.replace(f"{self.screen.cursor.y + 1}.{self.screen.cursor.x}",
+                                f"{self.screen.cursor.y + 1}.{self.screen.cursor.x + 1}",
                                 "_")
 
         for row in range(self.screen.lines):
