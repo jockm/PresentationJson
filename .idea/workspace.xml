@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="removed redundant function">
-      <change afterPath="$PROJECT_DIR$/AppUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresentationJson.py" beforeDir="false" afterPath="$PROJECT_DIR$/PresentationJson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresentationSession.py" beforeDir="false" afterPath="$PROJECT_DIR$/PresentationSession.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleTerminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTerminal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="62c9634e-9a37-4c3a-af35-cf0778c536a7" name="Changes" comment="Formalized the app structure and UI code">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720544964207</updated>
-      <workItem from="1720544965572" duration="53122000" />
+      <workItem from="1720544965572" duration="54421000" />
     </task>
     <task id="LOCAL-00001" summary="Terminal server sort of works">
       <option name="closed" value="true" />
@@ -159,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720666572876</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Formalized the app structure and UI code">
+      <option name="closed" value="true" />
+      <created>1720716922512</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720716922512</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +177,8 @@
     <MESSAGE value="Added Closing protection and clearscreen()" />
     <MESSAGE value="minor refomatting" />
     <MESSAGE value="removed redundant function" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed redundant function" />
+    <MESSAGE value="Formalized the app structure and UI code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formalized the app structure and UI code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
