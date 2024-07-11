@@ -1,14 +1,18 @@
 import tkinter
 import tkinter as tk
-from tkinter import scrolledtext
+from tkinter import scrolledtext, messagebox
 import pyte
 from pyte.streams import ByteStream
+
+WINDOW_CLOSE_MESSAGE = "Are you sure? This may not terminate the process on the other side, and it may become unrecoverable"
 
 
 class SimpleTerminal:
     def __init__(self, root: tk.Tk, title: str, cols=80, rows=25, font_size=14, input_callback=None, echo=False):
         self.window = tkinter.Toplevel(root)
         self.window.title(title)
+
+        self.window.protocol("WM_DELETE_WINDOW", self.onClosing)
 
         # Terminal dimensions
         self.width = cols
@@ -51,6 +55,17 @@ class SimpleTerminal:
         for name, value in self.colorMapping.items():
             self.tag_config[f"fg_{name}"] = {"foreground": value}
             self.tag_config[f"bg_{name}"] = {"background": value}
+
+    def onClosing(self):
+        if messagebox.askokcancel("Close Terminal?", WINDOW_CLOSE_MESSAGE):
+            self.destroy()
+
+    def clearScreen(self):
+        self.stream.feed("\x1b[2J".encode('utf-8'))
+        self.screen.cursor.x = 1
+        self.screen.cursor.y = 1
+        self.drawScreen()
+        pass
 
     def addText(self, text):
         # Feed text (including VT100 escape sequences) to pyte stream
