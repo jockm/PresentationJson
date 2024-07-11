@@ -7,7 +7,7 @@ keepRunning = True
 root: tk.Tk
 
 
-def on_closing():
+def onClosing():
     global keepRunning
     if messagebox.askokcancel("Quit?", "Quitting will terminate all sessions with clients.  Are you sure?"):
         keepRunning = False
@@ -24,7 +24,7 @@ def main():
     label.pack(pady=20)
 
     # Capture when it is done
-    root.protocol("WM_DELETE_WINDOW", on_closing)
+    root.protocol("WM_DELETE_WINDOW", onClosing)
 
     app = PresentationJson(root)
     app.setup()
