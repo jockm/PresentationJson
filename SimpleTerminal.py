@@ -1,14 +1,12 @@
 import tkinter
 import tkinter as tk
-from tkinter import scrolledtext, font as tkfont
+from tkinter import scrolledtext
 import pyte
 from pyte.streams import ByteStream
-import time
 
-def current_milli_time():
-    return round(time.time() * 1000)
-class TerminalWindow:
-    def __init__(self, root: tk.Tk, title: str, cols=80, rows=25, fontSize=14,  inputCallback=None, echo=False):
+
+class SimpleTerminal:
+    def __init__(self, root: tk.Tk, title: str, cols=80, rows=25, font_size=14, input_callback=None, echo=False):
         self.window = tkinter.Toplevel(root)
         self.window.title(title)
 
@@ -16,7 +14,7 @@ class TerminalWindow:
         self.width = cols
         self.height = rows
         self.isEchoEnabled = echo
-        self.inputCallback = inputCallback
+        self.inputCallback = input_callback
 
         # Create a scrolled text widget to display the terminal output
         self.text_widget = scrolledtext.ScrolledText(self.window, wrap=tk.NONE, state="disabled")
@@ -45,12 +43,12 @@ class TerminalWindow:
         # Configure tags for different text attributes
         self.tag_config = {
             "default": {},  # Default tag configuration
-            "bold": {"font": ("Courier", fontSize, "bold")},
-            "italic": {"font": ("Courier", fontSize, "italic")},
+            "bold": {"font": ("Courier", font_size, "bold")},
+            "italic": {"font": ("Courier", font_size, "italic")},
             "underscore": {"underline": True},
         }
 
-       # Add tags for each color defined in self.color_map
+        # Add tags for each color defined in self.color_map
         for color_name, color_value in self.color_map.items():
             self.tag_config[f"fg_{color_name}"] = {"foreground": color_value}
             self.tag_config[f"bg_{color_name}"] = {"background": color_value}
@@ -72,7 +70,7 @@ class TerminalWindow:
         self.window.destroy()
 
     def sendTextToTerminal(self, text):
-        #todo need to scan for carriage returns and linefeeds and adjust the cursor position
+        # todo need to scan for carriage return and linefeed and adjust the cursor position
 
         self.screen.cursor.y -= 1
         self.stream.feed(text.encode('utf-8'))
@@ -131,7 +129,6 @@ class TerminalWindow:
 
                 tags.append(fg_tag)
                 tags.append(bg_tag)
-
 
                 # Apply tags to the corresponding character
                 for tag in tags:

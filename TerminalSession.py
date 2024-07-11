@@ -1,14 +1,14 @@
 import tkinter
 
 from PresentationSession import PresentationSession
-from SimpleTerminal import TerminalWindow
+from SimpleTerminal import SimpleTerminal
 
 
 class TerminalSession(PresentationSession):
 	def __init__(self, root: tkinter.Tk, name: str):
 		super().__init__(root, name)
 
-		self.term = TerminalWindow(root, name, cols=80, rows=25, echo=True, inputCallback=self.userInput)
+		self.term = SimpleTerminal(root, name, cols=80, rows=25, echo=True, input_callback=self.userInput)
 
 	# todo create the terminal window
 
